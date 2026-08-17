@@ -1,0 +1,7 @@
+interface:
+  display_name: "XShui Workspace Builder｜小水工作台搭建师"
+  short_description: "通过行业模板与标准访谈，生成可编辑、可备份的本地个人工作台"
+  brand_color: "#C9B8E8"
+  default_prompt: "Use $xshui-workspace-builder to design and generate my editable local personal workbench."
+policy:
+  allow_implicit_invocation: true

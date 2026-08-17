@@ -1,0 +1,13 @@
+.DS_Store
+*.tmp
+*.bak-*
+__pycache__/
+*.pyc
+test-output/
+internal/
+.local/
+.private/
+*.private.*
+.env
+.env.*
+release-work/
