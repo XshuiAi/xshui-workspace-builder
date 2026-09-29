@@ -224,3 +224,6 @@ body.editing [data-module-id] > .module-edit-handle { display: flex; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .001ms !important; animation-duration: .001ms !important; animation-iteration-count: 1 !important; }
 }
+
+/* Navigation must remain identifiable inside custom views. */
+a.text-link{color:var(--accent-strong);text-decoration:underline;text-underline-offset:4px;cursor:pointer}a.text-link:focus-visible{outline:3px solid var(--accent-strong);outline-offset:4px}

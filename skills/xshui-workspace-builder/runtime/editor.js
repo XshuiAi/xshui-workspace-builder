@@ -10,7 +10,12 @@
 
   const clone = (value) => global.WorkspaceStore.clone(value);
 
-  function init(nextApi) { api = nextApi; }
+  function init(nextApi) {
+    api = nextApi;
+    document.addEventListener('mousedown', event => {
+      if(editing && event.target.closest('[data-editor-action]') && selectedNode?.isConnected) event.preventDefault();
+    });
+  }
   function isEditing() { return editing; }
 
   function pushHistory() {
@@ -78,21 +83,26 @@
     document.querySelectorAll("[data-edit-key]").forEach((node) => {
       node.setAttribute("contenteditable", "true");
       node.setAttribute("spellcheck", "false");
+      node.addEventListener("focus", () => select(node));
       node.addEventListener("click", (event) => {
         event.stopPropagation();
         select(node);
       });
-      node.addEventListener("blur", () => {
-        const key = node.dataset.editKey;
-        const value = node.textContent.trim();
-        if (!key || !value || api.getState().appearance.labels[key] === value) return;
-        mutate("文字已保存", (state) => { state.appearance.labels[key] = value; });
-      });
+      node.addEventListener("blur", () => { commitText(node).catch(error=>api.toast(error.message||"文字未保存")); });
     });
     if (selectedKey) {
       const found = document.querySelector(`[data-edit-key="${global.CSS?.escape ? CSS.escape(selectedKey) : selectedKey}"]`);
       if (found) select(found);
     }
+  }
+
+  async function commitText(node, refresh=true) {
+    const key=node?.dataset.editKey,value=node?.textContent.trim();
+    const current=api.getEditableValue?api.getEditableValue(key):api.getState().appearance.labels[key];
+    if(!key||!value||value===current)return;
+    const next=clone(api.getState());
+    if(api.setEditableValue)api.setEditableValue(next,key,value);else next.appearance.labels[key]=value;
+    pushHistory();api.setState(next);if(refresh)api.render();await api.save("文字已保存");
   }
 
   function adjustStyle(kind, delta, reset) {
@@ -231,7 +241,10 @@
     </div>`;
   }
 
-  function handleAction(action) {
+  async function handleAction(action) {
+    try { if (selectedNode?.isConnected && !['undo','redo'].includes(action)) await commitText(selectedNode,false); }
+    catch(error){api.toast(error.message||'文字未保存');return;}
+
     if (action === "exit") exit();
     if (action === "font-down") adjustStyle("fontSize", -1, false);
     if (action === "font-up") adjustStyle("fontSize", 1, false);

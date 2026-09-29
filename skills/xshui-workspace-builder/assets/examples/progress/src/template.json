@@ -1,0 +1,152 @@
+{
+  "templateId": "xiaoshui",
+  "appId": "xshui-xiaoshui-progress-workbench",
+  "appVersion": "1.0.0",
+  "profile": {
+    "ownerName": "Sherry小水",
+    "title": "老师，我太想进步了",
+    "subtitle": "把想做的事，一点点变成做过的事。",
+    "scene": "我的进步",
+    "onboarded": false
+  },
+  "home": {
+    "eyebrow": "A LITTLE PROGRESS, EVERY DAY",
+    "headline": "老师，我太想进步了",
+    "description": "",
+    "primaryAction": {
+      "label": "看看今天做什么",
+      "route": "today"
+    },
+    "secondaryAction": {
+      "label": "回看我的进步",
+      "route": "reviews"
+    }
+  },
+  "theme": {
+    "bg": "#ffffeb",
+    "surface": "#fffef9",
+    "surfaceSoft": "#f1e5fa",
+    "ink": "#29232f",
+    "muted": "#746d76",
+    "accent": "#e4c8f7",
+    "accentStrong": "#785199",
+    "success": "#486B57",
+    "warning": "#D7886F",
+    "border": "#e3decb",
+    "radius": "22px",
+    "displayFont": "Georgia, 'Songti SC', serif",
+    "bodyFont": "-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif"
+  },
+  "modules": [
+    {
+      "id": "today",
+      "label": "今日推进",
+      "description": "今天完成一小步，也值得认真记下来。",
+      "group": "我的进步",
+      "collection": "today",
+      "fields": [],
+      "protected": true,
+      "summary": true
+    },
+    {
+      "id": "tasks",
+      "label": "行动清单",
+      "description": "把想做的事写具体，完成一件，勾掉一件。",
+      "group": "我的进步",
+      "collection": "tasks",
+      "fields": [
+        {
+          "key": "title",
+          "label": "具体行动",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "status",
+          "label": "状态",
+          "type": "select",
+          "options": [
+            "待开始",
+            "进行中",
+            "已完成"
+          ]
+        },
+        {
+          "key": "dueDate",
+          "label": "计划日期",
+          "type": "date"
+        },
+        {
+          "key": "minutes",
+          "label": "预计用时（分钟）",
+          "type": "number"
+        },
+        {
+          "key": "note",
+          "label": "做到什么算完成",
+          "type": "textarea"
+        },
+        {
+          "key": "blocker",
+          "label": "卡点／下一步（选填）",
+          "type": "textarea"
+        }
+      ],
+      "protected": true
+    },
+    {
+      "id": "goals",
+      "label": "我的目标",
+      "description": "记住为什么开始，也允许途中调整。",
+      "group": "我的进步",
+      "collection": "goals",
+      "fields": [],
+      "protected": true
+    },
+    {
+      "id": "checkins",
+      "label": "进步记录",
+      "description": "留下过程、成果，还有不顺利的那一天。",
+      "group": "我的进步",
+      "collection": "checkins",
+      "fields": [],
+      "protected": true
+    },
+    {
+      "id": "reviews",
+      "label": "复盘回顾",
+      "description": "每月停一下，看看自己走到了哪里。",
+      "group": "我的进步",
+      "collection": "reviews",
+      "fields": [],
+      "protected": true
+    },
+    {
+      "id": "settings",
+      "label": "设置",
+      "description": "选择适合你的打卡、追问与复盘频率。",
+      "group": "我的进步",
+      "collection": "settings",
+      "fields": [],
+      "protected": true
+    },
+    {
+      "id": "archive",
+      "label": "导出记录",
+      "description": "保存一份记录，也可以从备份恢复。",
+      "group": "我的进步",
+      "collection": "archive",
+      "fields": [],
+      "archive": true,
+      "protected": true
+    }
+  ],
+  "demoData": {
+    "tasks": [],
+    "goals": [],
+    "stages": [],
+    "checkins": [],
+    "reviews": [],
+    "adjustments": []
+  }
+}

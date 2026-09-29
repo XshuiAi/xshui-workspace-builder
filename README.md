@@ -10,6 +10,12 @@
 
 很多人并不缺待办工具，而是缺一套真正符合自己身份、工作方式和审美的个人系统。这个 Skill 会先了解你，再生成一套可以继续修改的源码，以及一个双击就能打开的独立 HTML。
 
+## 直接使用进步计划
+
+[下载完整 HTML](https://raw.githubusercontent.com/XshuiAi/xshui-workspace-builder/main/skills/xshui-workspace-builder/assets/examples/progress/index.html) · [使用说明与定制提示词](skills/xshui-workspace-builder/assets/examples/progress/README.md)
+
+“老师，我太想进步了”示例包含阶段目标、行动进度、打卡与复盘，保留淡黄／紫色设计。已补齐首页快捷入口、正文编辑和各内页的图片编辑。下载 HTML 后可以直接使用，也可附给 AI 定制自己的目标。
+
 ## 立即安装
 
 使用支持 [Agent Skills](https://agentskills.io) 的 AI 编程助手：
