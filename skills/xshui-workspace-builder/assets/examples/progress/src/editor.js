@@ -218,7 +218,7 @@
       <label class="button small">＋ 图片<input class="visually-hidden" type="file" accept="image/*" data-editor-image></label>
       <button class="button small" data-editor-action="hidden">已隐藏内容</button>
       <span class="spacer"></span>
-      
+
     </div>`;
   }
 

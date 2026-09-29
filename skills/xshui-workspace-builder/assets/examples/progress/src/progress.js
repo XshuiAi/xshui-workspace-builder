@@ -184,7 +184,7 @@
         if(a==='edit-goal')openGoal();
         if(a==='stage')openStage(b.dataset.id);
         if(a==='delete-checkin'&&confirm('删除这条记录？建议先导出备份。')){S().data.checkins=S().data.checkins.filter(x=>x.id!==b.dataset.id);await ctx.save('记录已删除');ctx.render();}
-        
+
         if(a==='calendar')downloadBlob(calendarText(),'我的进步提醒.ics','text/calendar;charset=utf-8');
         if(a==='ai-plan')aiMaterial('plan');
         if(a==='ai-review')aiMaterial('review');

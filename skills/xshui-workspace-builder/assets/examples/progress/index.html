@@ -838,7 +838,7 @@ a.text-link{display:inline-flex;align-items:center;min-height:36px;color:var(--a
       <label class="button small">＋ 图片<input class="visually-hidden" type="file" accept="image/*" data-editor-image></label>
       <button class="button small" data-editor-action="hidden">已隐藏内容</button>
       <span class="spacer"></span>
-      
+
     </div>`;
   }
 
@@ -1049,7 +1049,7 @@ a.text-link{display:inline-flex;align-items:center;min-height:36px;color:var(--a
         if(a==='edit-goal')openGoal();
         if(a==='stage')openStage(b.dataset.id);
         if(a==='delete-checkin'&&confirm('删除这条记录？建议先导出备份。')){S().data.checkins=S().data.checkins.filter(x=>x.id!==b.dataset.id);await ctx.save('记录已删除');ctx.render();}
-        
+
         if(a==='calendar')downloadBlob(calendarText(),'我的进步提醒.ics','text/calendar;charset=utf-8');
         if(a==='ai-plan')aiMaterial('plan');
         if(a==='ai-review')aiMaterial('review');
