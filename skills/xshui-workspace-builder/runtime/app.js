@@ -193,6 +193,8 @@
       if (state.navigation.hidden.includes(module.id)) route = config.home.primaryAction.route;
       const content = module.summary ? renderToday(module) : renderModule(module);
       app.innerHTML = renderShell(content);
+      // Custom views must not make uploaded assets disappear.
+      if (!document.querySelector("[data-image-slot]")) document.getElementById("main-content").insertAdjacentHTML("beforeend", imageCards(module.id));
     }
     app.setAttribute("aria-busy", "false");
     applyTextStyles();
